@@ -93,21 +93,21 @@ app.post('/login', (req, res) => {
 
         // Verificar se o usuário existe
         if (results.length === 0) {
-            return res.status(401).json({ message: 'E-mail ou senha incorretos.' });
+            return res.status(200).json({ message: 'E-mail ou senha incorretos.' });
         }
 
         // Comparar a senha fornecida com a senha armazenada no banco de dados
         const usuario = results[0];
         const senhaCorreta = await bcrypt.compare(senha, usuario.senha);
         if (!senhaCorreta) {
-            return res.status(401).json({ message: 'E-mail ou senha incorretos.' });
+            return res.status(200).json({ message: 'E-mail ou senha incorretos.' });
         }
 
         // Se chegou até aqui, o login foi bem-sucedido
         res.status(200).json({ message: 'Login bem-sucedido!' });
     });
 
-   });
+});
 
 
 // Iniciando o servidor na porta especificada
@@ -118,7 +118,7 @@ app.listen(PORT, () => {
 // Adicionando um manipulador para o evento 'exit' do processo
 process.on('exit', () => {
     console.log('Encerrando servidor...');
-    
+
     // Encerrando a conexão com o banco de dados
     connection.end((err) => {
         if (err) {

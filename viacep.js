@@ -62,7 +62,7 @@ async function Logar() {
 
     try {
 
-        const responseLogin = await fetch('/login', {
+        const response = await fetch('/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -71,11 +71,11 @@ async function Logar() {
         });
 
 
-        const dataLogin = await responseLogin.json();
-        if (responseLogin.ok) {
-            document.getElementById('resultadosLogin').innerHTML = `<p>${dataLogin.message}</p>`;
+        const data = await response.json();
+        if (response.ok) {
+            document.getElementById('resultadosLogin').innerHTML = `<p>${data.message}</p>`;
         } else {
-            throw new Error(dataLogin.message);
+            throw new Error(data.message);
         }
     } catch (error) {
         document.getElementById('resultadosLogin').innerHTML = `<p>${error.message}</p>`;
@@ -99,4 +99,3 @@ document.getElementById('formLogin').addEventListener('submit', async function (
     event.preventDefault();
     await Logar();
 });
-
