@@ -61,7 +61,6 @@ async function Logar() {
     const senha = document.getElementById('senha').value;
 
     try {
-
         const response = await fetch('/login', {
             method: 'POST',
             headers: {
@@ -70,18 +69,16 @@ async function Logar() {
             body: new URLSearchParams({ email, senha })
         });
 
-
-        const data = await response.json();
+        const data = await response.send();
         if (response.ok) {
-            document.getElementById('resultadosLogin').innerHTML = `<p>${data.message}</p>`;
+            document.getElementById('resultados').innerHTML = `<p>${data.message}</p>`;
         } else {
             throw new Error(data.message);
         }
     } catch (error) {
-        document.getElementById('resultadosLogin').innerHTML = `<p>${error.message}</p>`;
+        document.getElementById('resultados').innerHTML = `<p>${error.message}</p>`;
     }
 }
-
 
 
 document.getElementById('cep').addEventListener('change', async function (event) {
