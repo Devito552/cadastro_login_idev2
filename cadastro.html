@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Endereço</title>
+</head>
+
+<body>
+    <h1>Cadastro de Endereço</h1>
+    <form id="formCadastro" action="/cadastro" method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required><br><br>
+
+        <label for="confirmarSenha">Confirmar Senha:</label>
+        <input type="password" id="confirmarSenha" name="confirmarSenha" required><br><br>
+
+        <label for="cep">CEP:</label>
+        <input type="text" id="cep" name="cep" required><br><br>
+
+        <label for="rua">Rua:</label>
+        <input type="text" id="rua" name="rua" required><br><br>
+
+        <label for="estado">Estado:</label>
+        <input type="text" id="estado" name="estado" required><br><br>
+
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" name="cidade" required><br><br>
+
+        <label for="bairro">Bairro:</label>
+        <input type="text" id="bairro" name="bairro" required><br><br>
+
+        <label for="numero">Número:</label>
+        <input type="text" id="numero" name="numero" required><br><br>
+
+        <div id="resultados"></div>
+
+        <button type="submit">Cadastrar</button>
+        <a href="/"><button type="button">Voltar</button></a>
+    </form>
+
+</body>
+
+<script src="/viacep.js"></script>
+
+</html>
